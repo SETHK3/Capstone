@@ -1,0 +1,109 @@
+CREATE TABLE IF NOT EXISTS Users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT NOT NULL,
+    last_name TEXT,
+    phone TEXT,
+    email TEXT UNIQUE,
+    password TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    date_created TEXT,
+    hire_date TEXT,
+    user_type TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Managers (
+    user_id INTEGER,
+    manager_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT,
+    phone TEXT,
+    email TEXT UNIQUE,
+    password TEXT,
+    active INTEGER,
+    date_created TEXT,
+    hire_date TEXT,
+    user_type TEXT,
+    FOREIGN KEY (user_id) REFERENCES Users (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS Competencies (
+    competency_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    date_created TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Assessments (
+    assessment_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    date_created TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Competency_Assessments (
+    assessment_id INTEGER,
+    competency_id INTEGER,
+    user_id INTEGER,
+    date_taken TEXT,
+    score INTEGER DEFAULT 0,
+    manager_id INTEGER,
+    FOREIGN KEY (assessment_id) REFERENCES Assessments (assessment_id),
+    FOREIGN KEY (competency_id) REFERENCES Competencies (competency_id),
+    FOREIGN KEY (user_id) REFERENCES Users (user_id),
+    FOREIGN KEY (manager_id) REFERENCES Users (manager_id)
+);
+
+CREATE TABLE IF NOT EXISTS Assessments (
+    result_id INTEGER PRIMARY KEY,
+    assessment_id INTEGER,
+    user_id INTEGER,
+    score INTEGER,
+    date_taken TEXT,
+    FOREIGN KEY (assessment_id) REFERENCES Assessments (assessment_id),
+    FOREIGN KEY (user_id) REFERENCES Users (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS Competency_Assessments (
+    assessment_id INTEGER,
+    competency_id INTEGER,
+    user_id INTEGER,
+    date_taken TEXT,
+    competency_score INTEGER PRIMARY KEY,
+    manager_id INTEGER,
+    FOREIGN KEY (assessment_id) REFERENCES Assessments (assessment_id),
+    FOREIGN KEY (competency_id) REFERENCES Competencies (competency_id),
+    FOREIGN KEY (user_id) REFERENCES Users (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS Assessment_Results (
+    result_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    assessment_id INTEGER,
+    user_id INTEGER,
+    score INTEGER,
+    date_taken TEXT,
+    FOREIGN KEY (assessment_id) REFERENCES Assessments (assessment_id),
+    FOREIGN KEY (user_id) REFERENCES Users (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS Reports (
+    report_id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE IF NOT EXISTS User_Competency_Summary (
+    report_id INTEGER,
+    user_id INTEGER,
+    competency_id INTEGER,
+    competency_score INTEGER,
+    avg_competency_score INTEGER,
+    FOREIGN KEY (report_id) REFERENCES Reports (report_id),
+    FOREIGN KEY (user_id) REFERENCES Users (user_id),
+    FOREIGN KEY (competency_id) REFERENCES Competencies (competency_id),
+    FOREIGN KEY (competency_score) REFERENCES Competency_Assessments (competency_score)
+);
+
+CREATE TABLE IF NOT EXISTS Competency_Results_Summary (
+    report_id INTEGER,
+    competency_id INTEGER,
+    avg_competency_score INTEGER,
+    FOREIGN KEY (report_id) REFERENCES Reports (report_id),
+    FOREIGN KEY (competency_id) REFERENCES Competencies (competency_id)
+);

@@ -1,0 +1,10 @@
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Marney', 'Pering', '829-681-7592', 'mpering0@discovery.com', 'bO2>lzW/L)nG7', false, '10/13/1960', 'Manager');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Jordanna', 'Dewhirst', '653-764-2492', 'jdewhirst1@yellowbook.com', 'dZ6@4g#$', false, '9/8/1994', 'Manager');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Lissy', 'Abbes', '495-762-1942', 'labbes2@toplist.cz', 'bS3\.mC#rOv', true, '3/18/2008', 'Manager');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Kinsley', 'Golsby', '735-335-2354', 'kgolsby3@toplist.cz', 'vL5>SQ#y4feiE@du', false, '1/17/1913', 'Manager');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Suzie', 'Tickel', '136-503-8898', 'stickel4@paginegialle.it', 'zB6,WA~"ROV&1gS', false, '9/10/2083', 'User');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Joya', 'Schwerin', '267-270-5206', 'jschwerin5@trellian.com', 'wO4_8MTVT', false, '8/25/1909', 'User');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Barrie', 'Arkill', '521-790-6516', 'barkill6@youtube.com', 'qS3%o$I,P1t?2Z=', false, '4/25/1994', 'User');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Ossie', 'Emmens', '278-175-0482', 'oemmens7@washingtonpost.com', 'gQ4{cniz&}D', false, '4/7/2063', 'Manager');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Zedekiah', 'Dilworth', '343-684-2318', 'zdilworth8@yellowbook.com', 'dJ5*,ud''Y', true, '3/3/1933', 'Manager');
+insert into Users (first_name, last_name, phone, email, password, active, hire_date, user_type) values ('Mignonne', 'Woolacott', '311-733-4140', 'mwoolacott9@alibaba.com', 'gW1<<ch&_w(JPwWQ', false, '11/17/2040', 'Manager');
